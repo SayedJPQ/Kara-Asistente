@@ -1,0 +1,14 @@
+C:\Users\PC0\Desktop\Asistente\bin\Debug\Asistente.exe.config
+C:\Users\PC0\Desktop\Asistente\bin\Debug\Asistente.exe
+C:\Users\PC0\Desktop\Asistente\bin\Debug\Asistente.pdb
+C:\Users\PC0\Desktop\Asistente\bin\Debug\Asistente.xml
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.vbprojAssemblyReference.cache
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.Form1.resources
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.Form2.resources
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.Form3.resources
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.Resources.resources
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.vbproj.GenerateResource.cache
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.vbproj.CoreCompileInputs.cache
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.exe
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.xml
+C:\Users\PC0\Desktop\Asistente\obj\Debug\Asistente.pdb
