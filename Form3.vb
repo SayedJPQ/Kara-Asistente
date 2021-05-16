@@ -9,7 +9,7 @@ Public Class Form3
     Dim WithEvents Rec As New Recognition.SpeechRecognitionEngine(New System.Globalization.CultureInfo("es-MX"))
     Dim synth As New Synthesis.SpeechSynthesizer
     Private Sub Recognizer_SpeechDetected(ByVal sender As Object, ByVal e As SpeechDetectedEventArgs)
-        Label1.ForeColor = Color.Green : Label1.BackColor = Color.Transparent : Label1.Text = "El reconocimiento de voz te escucho"
+        Label1.ForeColor = Color.Green : Label1.BackColor = Color.Transparent : Label1.Text = "El reconocimiento de voz te escucho con exito"
     End Sub
     Private Sub Recognizer_SpeechRecognitionRejected(ByVal sender As Object, ByVal e As SpeechRecognitionRejectedEventArgs)
         Label1.ForeColor = Color.Red : Label1.BackColor = Color.Transparent : Label1.Text = ("Lo lamento pero " & e.Result.Text & " no es reconocido")
@@ -25,6 +25,7 @@ Public Class Form3
         Rec.LoadGrammar(New Recognition.Grammar(Gramatica))
         Rec.SetInputToDefaultAudioDevice()
         Rec.RecognizeAsync()
+        Label1.ForeColor = Color.Blue : Label1.BackColor = Color.Transparent : Label1.Text = "Te escucho"
     End Sub
 
     Private Sub Reco_Recognized(ByVal sender As Object, ByVal e As System.Speech.Recognition.RecognitionEventArgs) Handles Rec.SpeechRecognized
@@ -47,6 +48,8 @@ Public Class Form3
             Case "ABRIR GOOGLE"
                 Kara.Speak("Abriendo google señor")
                 System.Diagnostics.Process.Start("explorer.exe", "https://www.google.com")
+            Case Else
+                Kara.Speak("No le entendi señor")
         End Select
     End Sub
     Private Sub Reco_RecognizeCompleted(ByVal sender As Object, ByVal e As System.Speech.Recognition.RecognizeCompletedEventArgs)
@@ -65,10 +68,16 @@ Public Class Form3
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Label1.Text = ""
+        Label1.ForeColor = Color.Blue : Label1.BackColor = Color.Transparent : Label1.Text = "Te escucho"
         Try
             Rec.RecognizeAsync()
         Catch ex As Exception
             MsgBox("Hubo un error por favor vuelve a intentarlo")
         End Try
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        MsgBox("Hasta luego", 0, "Espero vuelva pronto")
+        End
     End Sub
 End Class

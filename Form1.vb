@@ -3,6 +3,7 @@ Public Class Form1
     Dim speech As SpVoice = New SpVoice()
     Dim speechRate As Integer = 0 ' Rango desde -10 hasta 10 
     Dim volume As Integer = 100 ' Rango desde 0 hasta 100.
+    Declare Sub Sleep Lib "kernel32.dll" (ByVal Milliseconds As Integer)
     'Dim procesos As Process()
     Private Sub CodigoElse(texto As String, Traduce As Boolean)
 
@@ -24,9 +25,11 @@ Public Class Form1
                         Respuesta.Text = "Me alegro por usted señor"
                     Case "quiero programar"
                         Respuesta.Text = "En que lenguaje desea programar señor?"
-                    Case "comandos voz"
-                        Respuesta.Text = "Abriendo comandos de voz señor"
+                    Case "ir a comandos de voz"
+                        speech.Speak("Abriendo comandos de voz señor", SpeechVoiceSpeakFlags.SVSFlagsAsync)
+                        Sleep(3000)
                         Me.Hide()
+                        Sleep(3000)
                         Form3.Show()
 'Abrir programas
                     Case "python"

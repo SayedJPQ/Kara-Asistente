@@ -134,13 +134,13 @@ Partial Class Form1
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(112, 53)
         Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Hablar"
+        Me.Button3.Text = "Hablar en voz alta"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(712, 475)
+        Me.Button4.Location = New System.Drawing.Point(769, 475)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(148, 70)
         Me.Button4.TabIndex = 10
@@ -149,16 +149,19 @@ Partial Class Form1
         '
         'TrackBarVelocidad
         '
-        Me.TrackBarVelocidad.Location = New System.Drawing.Point(6, 510)
+        Me.TrackBarVelocidad.Location = New System.Drawing.Point(620, 317)
+        Me.TrackBarVelocidad.Minimum = -10
         Me.TrackBarVelocidad.Name = "TrackBarVelocidad"
-        Me.TrackBarVelocidad.Size = New System.Drawing.Size(206, 45)
+        Me.TrackBarVelocidad.Orientation = System.Windows.Forms.Orientation.Vertical
+        Me.TrackBarVelocidad.Size = New System.Drawing.Size(45, 228)
         Me.TrackBarVelocidad.TabIndex = 11
         '
         'TrackBarVolumen
         '
-        Me.TrackBarVolumen.Location = New System.Drawing.Point(392, 510)
+        Me.TrackBarVolumen.Location = New System.Drawing.Point(12, 572)
+        Me.TrackBarVolumen.Maximum = 100
         Me.TrackBarVolumen.Name = "TrackBarVolumen"
-        Me.TrackBarVolumen.Size = New System.Drawing.Size(206, 45)
+        Me.TrackBarVolumen.Size = New System.Drawing.Size(881, 45)
         Me.TrackBarVolumen.TabIndex = 12
         '
         'ComboBox1
@@ -174,7 +177,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(455, 475)
+        Me.Label3.Location = New System.Drawing.Point(72, 534)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 21)
         Me.Label3.TabIndex = 14
@@ -184,7 +187,7 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(61, 475)
+        Me.Label4.Location = New System.Drawing.Point(598, 291)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(84, 21)
         Me.Label4.TabIndex = 15
@@ -204,7 +207,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(982, 557)
+        Me.ClientSize = New System.Drawing.Size(982, 629)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -223,6 +226,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Respuesta)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.TrackBarVelocidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBarVolumen, System.ComponentModel.ISupportInitialize).EndInit()
