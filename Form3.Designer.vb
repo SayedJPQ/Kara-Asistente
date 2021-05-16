@@ -25,11 +25,12 @@ Partial Class Form3
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(69, 167)
+        Me.Button1.Location = New System.Drawing.Point(12, 168)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(103, 31)
         Me.Button1.TabIndex = 0
@@ -38,7 +39,7 @@ Partial Class Form3
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(236, 167)
+        Me.Button2.Location = New System.Drawing.Point(285, 168)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(103, 31)
         Me.Button2.TabIndex = 1
@@ -48,16 +49,26 @@ Partial Class Form3
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(46, 59)
+        Me.Label1.Location = New System.Drawing.Point(35, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(321, 60)
+        Me.Label1.Size = New System.Drawing.Size(332, 110)
         Me.Label1.TabIndex = 2
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(146, 168)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(103, 31)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "Hablar"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(400, 211)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -71,4 +82,5 @@ Partial Class Form3
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button3 As Button
 End Class
