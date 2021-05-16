@@ -38,13 +38,22 @@ Public Class Form3
                 Kara.Speak("Adios")
             Case "COMO ESTAS"
                 Kara.Speak("Bien y usted")
+            Case "SALUDA A TIO MICHAEL"
+                Kara.Speak("Hola tio Michael, mucho gusto soy Kará, el asistente personal de Sallet, estoy apenas comenzando, pero estoy tratando de mejorar, le mando un gran saludo")
+            Case "SALUDA A GABRIEL"
+                Kara.Speak("Hola Gabriel, mucho gusto soy Kará, el asistente personal de Sallet, te mando un saludo")
+            Case "SALUDA A DILAN"
+                Kara.Speak("Hola Dilan, mucho gusto soy Kará, el asistente personal de Sallet, te mando un saludo")
+            Case "ABRIR GOOGLE"
+                Kara.Speak("Abriendo google señor")
+                System.Diagnostics.Process.Start("explorer.exe", "https://www.google.com")
         End Select
     End Sub
     Private Sub Reco_RecognizeCompleted(ByVal sender As Object, ByVal e As System.Speech.Recognition.RecognizeCompletedEventArgs)
         Rec.RecognizeAsync()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         'Rec.Dispose()
         'synth.Dispose()
     End Sub
@@ -56,6 +65,10 @@ Public Class Form3
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Label1.Text = ""
-        Rec.RecognizeAsync()
+        Try
+            Rec.RecognizeAsync()
+        Catch ex As Exception
+            MsgBox("Hubo un error por favor vuelve a intentarlo")
+        End Try
     End Sub
 End Class
