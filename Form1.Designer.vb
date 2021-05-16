@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Respuesta = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -225,9 +226,10 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Respuesta)
         Me.Controls.Add(Me.TextBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Asistente de voz"
         CType(Me.TrackBarVelocidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBarVolumen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
