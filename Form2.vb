@@ -15,7 +15,7 @@ Public Class Form2
             Process.Start("UserAccountControlSettings.exe")
             Process.Start("C:\Users\PC0\Desktop\Kara\Tutorial\Tutorial.exe")
             Me.Hide()
-            Form1.Show()
+            Form4.Show()
         ElseIf TextBox1.Text = "sayed" And TextBox2.Text = "sayed123" And CheckBox1.Checked = False Then
             speech.Rate = 0
             speech.Volume = 100

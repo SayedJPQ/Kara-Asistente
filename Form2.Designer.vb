@@ -56,7 +56,7 @@ Partial Class Form2
         Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(155, 31)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(187, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(229, 29)
         Me.TextBox1.TabIndex = 2
         '
         'TextBox2
@@ -64,13 +64,15 @@ Partial Class Form2
         Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(155, 101)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(187, 29)
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox2.Size = New System.Drawing.Size(229, 29)
         Me.TextBox2.TabIndex = 3
+        Me.TextBox2.UseSystemPasswordChar = True
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(75, 150)
+        Me.Button1.Location = New System.Drawing.Point(93, 155)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(241, 78)
         Me.Button1.TabIndex = 4
@@ -81,7 +83,7 @@ Partial Class Form2
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(132, 256)
+        Me.CheckBox1.Location = New System.Drawing.Point(144, 256)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(137, 26)
         Me.CheckBox1.TabIndex = 5
@@ -92,7 +94,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(354, 294)
+        Me.ClientSize = New System.Drawing.Size(428, 294)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox2)
