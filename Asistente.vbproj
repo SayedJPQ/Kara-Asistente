@@ -203,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Android.ico" />
+    <Content Include="Comandos.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

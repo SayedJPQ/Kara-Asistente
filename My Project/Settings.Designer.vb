@@ -64,6 +64,16 @@ Namespace My
                 Return CType(Me("ComandosConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Comandos.mdb")>  _
+        Public ReadOnly Property ComandosConnectionString1() As String
+            Get
+                Return CType(Me("ComandosConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

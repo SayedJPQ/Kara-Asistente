@@ -24,9 +24,6 @@ Partial Class Form4
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form4))
-        Dim ComandoLabel As System.Windows.Forms.Label
-        Dim RespuestaLabel As System.Windows.Forms.Label
-        Dim AccionLabel As System.Windows.Forms.Label
         Me.ComandosDataSet = New Asistente.ComandosDataSet()
         Me.ComandosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComandosTableAdapter = New Asistente.ComandosDataSetTableAdapters.ComandosTableAdapter()
@@ -44,23 +41,11 @@ Partial Class Form4
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.ComandosBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.ComandoTextBox = New System.Windows.Forms.TextBox()
-        Me.RespuestaTextBox = New System.Windows.Forms.TextBox()
-        Me.AccionTextBox = New System.Windows.Forms.TextBox()
         Me.ComandosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        ComandoLabel = New System.Windows.Forms.Label()
-        RespuestaLabel = New System.Windows.Forms.Label()
-        AccionLabel = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.ComandosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComandosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComandosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,7 +118,6 @@ Partial Class Form4
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -142,14 +126,14 @@ Partial Class Form4
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 15)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -157,7 +141,7 @@ Partial Class Form4
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -166,13 +150,13 @@ Partial Class Form4
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
         '
         'BindingNavigatorAddNewItem
         '
@@ -189,7 +173,7 @@ Partial Class Form4
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
         Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'ComandosBindingNavigatorSaveItem
@@ -197,76 +181,19 @@ Partial Class Form4
         Me.ComandosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ComandosBindingNavigatorSaveItem.Image = CType(resources.GetObject("ComandosBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.ComandosBindingNavigatorSaveItem.Name = "ComandosBindingNavigatorSaveItem"
-        Me.ComandosBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
+        Me.ComandosBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
         Me.ComandosBindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'ComandoLabel
-        '
-        ComandoLabel.AutoSize = True
-        ComandoLabel.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ComandoLabel.Location = New System.Drawing.Point(12, 59)
-        ComandoLabel.Name = "ComandoLabel"
-        ComandoLabel.Size = New System.Drawing.Size(88, 21)
-        ComandoLabel.TabIndex = 1
-        ComandoLabel.Text = "Comando:"
-        '
-        'ComandoTextBox
-        '
-        Me.ComandoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComandosBindingSource, "Comando", True))
-        Me.ComandoTextBox.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComandoTextBox.Location = New System.Drawing.Point(109, 51)
-        Me.ComandoTextBox.Name = "ComandoTextBox"
-        Me.ComandoTextBox.Size = New System.Drawing.Size(193, 29)
-        Me.ComandoTextBox.TabIndex = 2
-        '
-        'RespuestaLabel
-        '
-        RespuestaLabel.AutoSize = True
-        RespuestaLabel.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        RespuestaLabel.Location = New System.Drawing.Point(12, 101)
-        RespuestaLabel.Name = "RespuestaLabel"
-        RespuestaLabel.Size = New System.Drawing.Size(91, 21)
-        RespuestaLabel.TabIndex = 3
-        RespuestaLabel.Text = "Respuesta:"
-        '
-        'RespuestaTextBox
-        '
-        Me.RespuestaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComandosBindingSource, "Respuesta", True))
-        Me.RespuestaTextBox.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RespuestaTextBox.Location = New System.Drawing.Point(109, 98)
-        Me.RespuestaTextBox.Name = "RespuestaTextBox"
-        Me.RespuestaTextBox.Size = New System.Drawing.Size(193, 29)
-        Me.RespuestaTextBox.TabIndex = 4
-        '
-        'AccionLabel
-        '
-        AccionLabel.AutoSize = True
-        AccionLabel.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AccionLabel.Location = New System.Drawing.Point(12, 147)
-        AccionLabel.Name = "AccionLabel"
-        AccionLabel.Size = New System.Drawing.Size(68, 21)
-        AccionLabel.TabIndex = 5
-        AccionLabel.Text = "Accion:"
-        '
-        'AccionTextBox
-        '
-        Me.AccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComandosBindingSource, "Accion", True))
-        Me.AccionTextBox.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AccionTextBox.Location = New System.Drawing.Point(109, 139)
-        Me.AccionTextBox.Name = "AccionTextBox"
-        Me.AccionTextBox.Size = New System.Drawing.Size(193, 29)
-        Me.AccionTextBox.TabIndex = 6
         '
         'ComandosDataGridView
         '
         Me.ComandosDataGridView.AutoGenerateColumns = False
         Me.ComandosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ComandosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
+        Me.ComandosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.ComandosDataGridView.DataSource = Me.ComandosBindingSource
-        Me.ComandosDataGridView.Location = New System.Drawing.Point(404, 28)
+        Me.ComandosDataGridView.Location = New System.Drawing.Point(159, 60)
         Me.ComandosDataGridView.Name = "ComandosDataGridView"
-        Me.ComandosDataGridView.Size = New System.Drawing.Size(343, 220)
-        Me.ComandosDataGridView.TabIndex = 7
+        Me.ComandosDataGridView.Size = New System.Drawing.Size(443, 220)
+        Me.ComandosDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
         '
@@ -286,100 +213,23 @@ Partial Class Form4
         Me.DataGridViewTextBoxColumn3.HeaderText = "Accion"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
-        'Button1
+        'DataGridViewTextBoxColumn4
         '
-        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(21, 330)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 36)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "<<"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(125, 330)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(79, 36)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "<"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(227, 330)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(79, 36)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = ">"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(329, 330)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(79, 36)
-        Me.Button4.TabIndex = 11
-        Me.Button4.Text = ">>"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(425, 330)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(133, 36)
-        Me.Button5.TabIndex = 12
-        Me.Button5.Text = "Agregar Nuevo"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(581, 330)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(79, 36)
-        Me.Button6.TabIndex = 13
-        Me.Button6.Text = "Elminar"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(684, 330)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(79, 36)
-        Me.Button7.TabIndex = 14
-        Me.Button7.Text = "Guardar"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Categoria"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Categoria"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 521)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ComandosDataGridView)
-        Me.Controls.Add(ComandoLabel)
-        Me.Controls.Add(Me.ComandoTextBox)
-        Me.Controls.Add(RespuestaLabel)
-        Me.Controls.Add(Me.RespuestaTextBox)
-        Me.Controls.Add(AccionLabel)
-        Me.Controls.Add(Me.AccionTextBox)
         Me.Controls.Add(Me.ComandosBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form4"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Agregar comandos"
+        Me.Text = "Agregar Comandos"
         CType(Me.ComandosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComandosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComandosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -408,18 +258,9 @@ Partial Class Form4
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents ComandosBindingNavigatorSaveItem As ToolStripButton
-    Friend WithEvents ComandoTextBox As TextBox
-    Friend WithEvents RespuestaTextBox As TextBox
-    Friend WithEvents AccionTextBox As TextBox
     Friend WithEvents ComandosDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class

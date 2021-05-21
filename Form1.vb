@@ -10,7 +10,10 @@ Public Class Form1
             If Traduce = False Then
                 speech.Voice = speech.GetVoices.Item(0)
                 Select Case texto
+
 'Interaccion con el bot
+                    Case "hola"
+                        Respuesta.Text = "Hola!"
                     Case "como estas?"
                         Respuesta.Text = "Bien y usted señor"
                     Case "ir a comandos de voz"
@@ -19,6 +22,10 @@ Public Class Form1
                         Me.Hide()
                         Sleep(3000)
                         Form3.Show()
+                    Case "agregar comandos"
+                        speech.Speak("Abriendo para agregar comandos señor", SpeechVoiceSpeakFlags.SVSFlagsAsync)
+                        Me.Hide()
+                        Form4.Show()
 'Abrir programas
                     Case "python"
                         Respuesta.Text = "Python abierto señor"

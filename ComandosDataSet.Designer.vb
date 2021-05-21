@@ -289,6 +289,8 @@ Partial Public Class ComandosDataSet
         
         Private columnAccion As Global.System.Data.DataColumn
         
+        Private columnCategoria As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -349,6 +351,14 @@ Partial Public Class ComandosDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CategoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCategoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -385,9 +395,9 @@ Partial Public Class ComandosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddComandosRow(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String) As ComandosRow
+        Public Overloads Function AddComandosRow(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String, ByVal Categoria As String) As ComandosRow
             Dim rowComandosRow As ComandosRow = CType(Me.NewRow,ComandosRow)
-            Dim columnValuesArray() As Object = New Object() {Comando, Respuesta, Accion}
+            Dim columnValuesArray() As Object = New Object() {Comando, Respuesta, Accion, Categoria}
             rowComandosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowComandosRow)
             Return rowComandosRow
@@ -395,8 +405,8 @@ Partial Public Class ComandosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByComando(ByVal Comando As String) As ComandosRow
-            Return CType(Me.Rows.Find(New Object() {Comando}),ComandosRow)
+        Public Function FindByCategoria(ByVal Categoria As String) As ComandosRow
+            Return CType(Me.Rows.Find(New Object() {Categoria}),ComandosRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -419,6 +429,7 @@ Partial Public Class ComandosDataSet
             Me.columnComando = MyBase.Columns("Comando")
             Me.columnRespuesta = MyBase.Columns("Respuesta")
             Me.columnAccion = MyBase.Columns("Accion")
+            Me.columnCategoria = MyBase.Columns("Categoria")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -430,12 +441,15 @@ Partial Public Class ComandosDataSet
             MyBase.Columns.Add(Me.columnRespuesta)
             Me.columnAccion = New Global.System.Data.DataColumn("Accion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAccion)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnComando}, true))
-            Me.columnComando.AllowDBNull = false
-            Me.columnComando.Unique = true
+            Me.columnCategoria = New Global.System.Data.DataColumn("Categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCategoria)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCategoria}, true))
             Me.columnComando.MaxLength = 255
             Me.columnRespuesta.MaxLength = 255
             Me.columnAccion.MaxLength = 255
+            Me.columnCategoria.AllowDBNull = false
+            Me.columnCategoria.Unique = true
+            Me.columnCategoria.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -584,7 +598,11 @@ Partial Public Class ComandosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property Comando() As String
             Get
-                Return CType(Me(Me.tableComandos.ComandoColumn),String)
+                Try 
+                    Return CType(Me(Me.tableComandos.ComandoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Comando' in table 'Comandos' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableComandos.ComandoColumn) = value
@@ -620,6 +638,29 @@ Partial Public Class ComandosDataSet
                 Me(Me.tableComandos.AccionColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Categoria() As String
+            Get
+                Return CType(Me(Me.tableComandos.CategoriaColumn),String)
+            End Get
+            Set
+                Me(Me.tableComandos.CategoriaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsComandoNull() As Boolean
+            Return Me.IsNull(Me.tableComandos.ComandoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetComandoNull()
+            Me(Me.tableComandos.ComandoColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -815,45 +856,55 @@ Namespace ComandosDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Comando", "Comando")
             tableMapping.ColumnMappings.Add("Respuesta", "Respuesta")
             tableMapping.ColumnMappings.Add("Accion", "Accion")
+            tableMapping.ColumnMappings.Add("Categoria", "Categoria")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Comandos` WHERE ((`Comando` = ?) AND ((? = 1 AND `Respuesta` IS NULL"& _ 
-                ") OR (`Respuesta` = ?)) AND ((? = 1 AND `Accion` IS NULL) OR (`Accion` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Comandos` WHERE (((? = 1 AND `Comando` IS NULL) OR (`Comando` = ?)) "& _ 
+                "AND ((? = 1 AND `Respuesta` IS NULL) OR (`Respuesta` = ?)) AND ((? = 1 AND `Acci"& _ 
+                "on` IS NULL) OR (`Accion` = ?)) AND (`Categoria` = ?))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Comando", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Comando", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Respuesta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Respuesta", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Accion", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Accion", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Categoria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Categoria", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Comandos` (`Comando`, `Respuesta`, `Accion`) VALUES (?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Comandos` (`Comando`, `Respuesta`, `Accion`, `Categoria`) VALUES (?,"& _ 
+                " ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Comando", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Respuesta", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Accion", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Categoria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Categoria", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Comandos` SET `Comando` = ?, `Respuesta` = ?, `Accion` = ? WHERE ((`Coman"& _ 
-                "do` = ?) AND ((? = 1 AND `Respuesta` IS NULL) OR (`Respuesta` = ?)) AND ((? = 1 "& _ 
-                "AND `Accion` IS NULL) OR (`Accion` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Comandos` SET `Comando` = ?, `Respuesta` = ?, `Accion` = ?, `Categoria` ="& _ 
+                " ? WHERE (((? = 1 AND `Comando` IS NULL) OR (`Comando` = ?)) AND ((? = 1 AND `Re"& _ 
+                "spuesta` IS NULL) OR (`Respuesta` = ?)) AND ((? = 1 AND `Accion` IS NULL) OR (`A"& _ 
+                "ccion` = ?)) AND (`Categoria` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Comando", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Respuesta", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Accion", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Categoria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Categoria", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Comando", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Comando", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Comando", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Respuesta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Respuesta", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Respuesta", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Accion", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Accion", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accion", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Categoria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Categoria", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Asistente.My.MySettings.Default.ComandosConnectionString
+            Me._connection.ConnectionString = Global.Asistente.My.MySettings.Default.ComandosConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -862,7 +913,7 @@ Namespace ComandosDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Comando, Respuesta, Accion FROM Comandos"
+            Me._commandCollection(0).CommandText = "SELECT Comando, Respuesta, Accion, Categoria FROM Comandos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -922,24 +973,32 @@ Namespace ComandosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String, ByVal Original_Categoria As String) As Integer
             If (Original_Comando Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Comando")
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Comando,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Comando,String)
             End If
             If (Original_Respuesta Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Respuesta")
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Respuesta,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Respuesta,String)
             End If
             If (Original_Accion Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Accion,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Accion,String)
+            End If
+            If (Original_Categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Categoria")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Categoria,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -960,14 +1019,14 @@ Namespace ComandosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String, ByVal Categoria As String) As Integer
             If (Comando Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Comando")
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Comando,String)
             End If
             If (Respuesta Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Respuesta")
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Respuesta,String)
             End If
@@ -975,6 +1034,11 @@ Namespace ComandosDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(Accion,String)
+            End If
+            If (Categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Categoria")
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Categoria,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -995,14 +1059,14 @@ Namespace ComandosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String, ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String, ByVal Categoria As String, ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String, ByVal Original_Categoria As String) As Integer
             If (Comando Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Comando")
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Comando,String)
             End If
             If (Respuesta Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Respuesta")
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Respuesta,String)
             End If
@@ -1011,23 +1075,36 @@ Namespace ComandosDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Accion,String)
             End If
-            If (Original_Comando Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Comando")
+            If (Categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Categoria")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_Comando,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Categoria,String)
             End If
-            If (Original_Respuesta Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Respuesta")
+            If (Original_Comando Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Respuesta,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Comando,String)
             End If
-            If (Original_Accion Is Nothing) Then
+            If (Original_Respuesta Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Accion,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Respuesta,String)
+            End If
+            If (Original_Accion Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Accion,String)
+            End If
+            If (Original_Categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Categoria")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Categoria,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1048,8 +1125,8 @@ Namespace ComandosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Respuesta As String, ByVal Accion As String, ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String) As Integer
-            Return Me.Update(Original_Comando, Respuesta, Accion, Original_Comando, Original_Respuesta, Original_Accion)
+        Public Overloads Overridable Function Update(ByVal Comando As String, ByVal Respuesta As String, ByVal Accion As String, ByVal Original_Comando As String, ByVal Original_Respuesta As String, ByVal Original_Accion As String, ByVal Original_Categoria As String) As Integer
+            Return Me.Update(Comando, Respuesta, Accion, Original_Categoria, Original_Comando, Original_Respuesta, Original_Accion, Original_Categoria)
         End Function
     End Class
     
