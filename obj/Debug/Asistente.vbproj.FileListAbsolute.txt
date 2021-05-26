@@ -26,5 +26,4 @@ C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\obj\Debug\Asistente.vbproj.Cor
 C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\obj\Debug\Asistente.exe
 C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\obj\Debug\Asistente.xml
 C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\obj\Debug\Asistente.pdb
-C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\obj\Debug\Asistente.Form4.resources
 C:\Users\PC0\Desktop\Sayed\Programacion\Asistente\bin\Debug\Comandos.mdb

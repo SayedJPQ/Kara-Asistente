@@ -19,13 +19,9 @@ Public Class Form1
                     Case "ir a comandos de voz"
                         speech.Speak("Abriendo comandos de voz señor", SpeechVoiceSpeakFlags.SVSFlagsAsync)
                         Sleep(3000)
-                        Me.Hide()
-                        Sleep(3000)
                         Form3.Show()
-                    Case "agregar comandos"
-                        speech.Speak("Abriendo para agregar comandos señor", SpeechVoiceSpeakFlags.SVSFlagsAsync)
+                        Sleep(3000)
                         Me.Hide()
-                        Form4.Show()
 'Abrir programas
                     Case "python"
                         Respuesta.Text = "Python abierto señor"
@@ -102,5 +98,13 @@ Public Class Form1
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         speech.Voice = speech.GetVoices(String.Empty, String.Empty).Item(ComboBox1.SelectedIndex)
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        speech.Speak("Abriendo comandos de voz señor", SpeechVoiceSpeakFlags.SVSFlagsAsync)
+        Sleep(3000)
+        Me.Hide()
+        Sleep(3000)
+        Form3.Show()
     End Sub
 End Class

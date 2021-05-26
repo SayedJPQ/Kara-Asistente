@@ -40,6 +40,7 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.TrackBarVelocidad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBarVolumen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -141,7 +142,7 @@ Partial Class Form1
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(769, 475)
+        Me.Button4.Location = New System.Drawing.Point(763, 475)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(148, 70)
         Me.Button4.TabIndex = 10
@@ -204,11 +205,22 @@ Partial Class Form1
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Seleccionar Voz"
         '
+        'Button5
+        '
+        Me.Button5.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(741, 360)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(192, 78)
+        Me.Button5.TabIndex = 17
+        Me.Button5.Text = "Ir a comandos de voz"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(982, 629)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -254,4 +266,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button5 As Button
 End Class
