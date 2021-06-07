@@ -38,6 +38,9 @@ Public Class Form3
         Rec.SetInputToDefaultAudioDevice()
         Rec.RecognizeAsync()
         Label1.ForeColor = Color.Blue : Label1.BackColor = Color.Transparent : Label1.Text = "Te escucho"
+        Categoría.Items.Add("Interaccion")
+        Categoría.Items.Add("Abrir Programas")
+        Categoría.Items.Add("Abrir Webs")
     End Sub
     Private Sub Reco_RecognizeCompleted(ByVal sender As Object, ByVal e As System.Speech.Recognition.RecognizeCompletedEventArgs) Handles Rec.RecognizeCompleted
         Rec.RecognizeAsync()
@@ -131,5 +134,9 @@ Public Class Form3
         Catch ex As Exception
             MsgBox("Error en la base de datos: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub ComandosDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ComandosDataGridView.CellContentClick
+
     End Sub
 End Class

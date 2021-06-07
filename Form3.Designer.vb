@@ -37,7 +37,7 @@ Partial Class Form3
         Me.ComandosTableAdapter = New Asistente.ComandosDataSetTableAdapters.ComandosTableAdapter()
         Me.TableAdapterManager = New Asistente.ComandosDataSetTableAdapters.TableAdapterManager()
         Me.ComandosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Categoría = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -142,18 +142,20 @@ Partial Class Form3
         '
         Me.ComandosDataGridView.AutoGenerateColumns = False
         Me.ComandosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ComandosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.ComandosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Categoría, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.ComandosDataGridView.DataSource = Me.ComandosBindingSource
-        Me.ComandosDataGridView.Location = New System.Drawing.Point(237, 123)
+        Me.ComandosDataGridView.Location = New System.Drawing.Point(190, 123)
         Me.ComandosDataGridView.Name = "ComandosDataGridView"
         Me.ComandosDataGridView.Size = New System.Drawing.Size(443, 220)
         Me.ComandosDataGridView.TabIndex = 9
         '
-        'DataGridViewTextBoxColumn1
+        'Categoría
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Categoría"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Categoría"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.Categoría.DataPropertyName = "Categoría"
+        Me.Categoría.HeaderText = "Categoría"
+        Me.Categoría.Name = "Categoría"
+        Me.Categoría.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Categoría.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'DataGridViewTextBoxColumn2
         '
@@ -206,12 +208,12 @@ Partial Class Form3
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents ComandosDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents ComandosDataSet As ComandosDataSet
     Friend WithEvents ComandosBindingSource As BindingSource
     Friend WithEvents ComandosTableAdapter As ComandosDataSetTableAdapters.ComandosTableAdapter
     Friend WithEvents TableAdapterManager As ComandosDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Categoría As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class
